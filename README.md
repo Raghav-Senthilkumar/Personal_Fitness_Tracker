@@ -1,36 +1,44 @@
-# **Fitness Tracker App**
+# Fitness Assistant Application
 
-A sleek and interactive **Fitness Tracker App** built with Android Studio, designed to track your fitness activities, including steps, calories burned, distance, and more. It uses real-time data and user input to provide detailed insights and recommendations.
+## Overview
+This application is a **Fitness Assistant** that combines real-time workout tracking using computer vision with scientific research integration to provide feedback and generate a report on the effectiveness of specific exercises (e.g., bicep curls) in muscle hypertrophy. It uses **MediaPipe** for pose estimation, **PubMed** for fetching relevant scientific articles, and **Hugging Face Transformers** for generating a report based on workout data and research insights.
 
-## **Features**
+---
 
-### **Track Daily Activities**
+## Features
+1. **Real-time Workout Tracking**:
+   - Tracks bicep curl exercises using a webcam.
+   - Counts repetitions (reps) and sets.
+   - Measures **time under tension** for concentric (lifting) and eccentric (lowering) phases.
+   - Records the **range of motion** (min and max angles) for each rep.
 
-- Track **steps**, **calories burned**, and **distance traveled**.
-- Monitor your **fitness goals** with dynamic progress bars.
+2. **Scientific Research Integration**:
+   - Fetches relevant articles from **PubMed** using the **Entrez API**.
+   - Searches for articles related to:
+     - Bicep curls.
+     - Exercise angles.
+     - Time under tension.
+     - Muscle hypertrophy.
 
-### **Personalized Workouts**
+3. **Automated Report Generation**:
+   - Combines workout data with fetched PubMed articles.
+   - Uses a **Hugging Face text-generation model** (e.g., GPT-2) to generate a detailed report on the effectiveness of the workout.
 
-- Customized workouts tailored to your fitness level and goals.
-- **Exercise progress** is tracked in real-time, showing time, repetitions, and sets.
+4. **Real-time Feedback**:
+   - Displays rep count, set count, and feedback on the screen.
+   - Visualizes body landmarks and angles using **MediaPipe**.
 
-### **Goal Setting & Progress Tracking**
+---
 
-- Set fitness goals such as **steps per day**, **calories burned**, and **distance covered**.
-- View **daily/weekly/monthly progress reports** to track improvements.
+## Requirements
+To run this application, you need the following Python libraries installed:
+- `opencv-python`
+- `mediapipe`
+- `numpy`
+- `biopython`
+- `transformers`
+- `torch` (for Hugging Face models)
 
-### **Integration with Wearable Devices**
-
-- Sync data with **wearable devices** (e.g., fitness bands, smartwatches) for real-time tracking.
-
-## **Requirements**
-
-- Android Studio
-- Android 5.0 (API Level 21) or higher
-- Access to **Google Fit API** for activity tracking
-
-## **Setup**
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/yourusername/FitnessTrackerApp.git
+You can install the required libraries using:
+```bash
+pip install opencv-python mediapipe numpy biopython transformers torch
